@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Erro 404</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffffff;
+    overflow:hidden;
+    color:rgb(0, 0, 0);
+    font-family:'Poppins', sans-serif;
+}
+
+/* moeda */
+.coin{
+    position:absolute;
+    top:-120px;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:gold;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:fall 1.5s forwards;
+    box-shadow:0 0 25px gold;
+}
+
+/* imagem dentro da moeda */
+.coin img{
+    width:70px;
+    height:70px;
+}
+
+@keyframes fall{
+    0%{ top:-120px; transform:rotate(0deg); }
+    100%{ top:55%; transform:rotate(720deg); }
+}
+
+.broken{
+    animation:break 0.4s forwards;
+}
+
+@keyframes break{
+    0%{ transform:scale(1); opacity:1; }
+    100%{ transform:scale(0); opacity:0; }
+}
+
+/* texto erro */
+.error{
+    opacity:0;
+    font-size:70px;
+    text-align:center;
+    font-weight:700;
+    letter-spacing:2px;
+    animation:show 1s forwards;
+    animation-delay:2s;
+}
+
+@keyframes show{
+    to{ opacity:1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="coin" id="coin">
+    <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+</div>
+
+<div class="error">
+    404<br>
+    Página não encontrada
+</div>
+
+<script>
+setTimeout(()=>{
+    document.getElementById("coin").classList.add("broken");
+},1500);
+</script>
+
+</body>
+</html>
